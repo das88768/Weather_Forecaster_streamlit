@@ -1,0 +1,1 @@
+web: gunicorn streamlit run weather_app.py
