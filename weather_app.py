@@ -16,13 +16,13 @@ sign = u"\N{DEGREE SIGN}"
 owm = pyowm.OWM(api_key)
 mgr = owm.weather_manager()
 
-st.title("Weather Forcaster")
+st.title("Weather Forecaster")
 st.write("## *Made by Akash Das with* :heart:")
 st.write("### Enter the city name, choose a Temperature unit and a graph type from the bottom:")
 
-location = st.text_input("NAME OF THE CITY :", "")
-units = st.selectbox("Select temperature unit: ", ('celsius', 'fahrenheit'))
-graph = st.selectbox("Select Graph type:", ('Bar Graph', 'Line Graph'))
+location = st.text_input("Name of The City :", "")
+units = st.selectbox("Select Temperature Unit: ", ('celsius', 'fahrenheit'))
+graph = st.selectbox("Select Graph Type:", ('Bar Graph', 'Line Graph'))
 
 if units == 'celsius':
     degree = 'C'
@@ -135,7 +135,7 @@ def weather_forcast():
     st.write(f"### 💧 Humidity: {humidity}%")
 
     pressure = weather.pressure['press']
-    st.write(f"### ⏲️ Pessure: {pressure}mBar")
+    st.write(f"### ⏲️ Pressure: {pressure}mBar")
 
     visibility = weather.visibility(unit='kilometers')
     st.write(f"### 🛣️ Visibility: {visibility}km")
@@ -263,7 +263,7 @@ def plot_bar_graph_temp():
 if __name__ == '__main__':
     if st.button('Submit'):
         if location == '':
-            st.warning('Provide the city name.')
+            st.warning('Provide a city name!!')
         else:
             try:
                 weather_forcast()
@@ -277,5 +277,7 @@ if __name__ == '__main__':
                 sunrise_sunset()
                 plot_humidity_graph()
             except:
-                error = SystemError("Server Down.....!\nPlease Try Again Later..")
-                st.exception(error)
+                error1 = NameError("Location Not Found!!\nTo make search more precise\
+                        put the city's name, comma, 2-letter country code. Like this one- (city, XY)")
+                #error2 = SystemError("Server Down.....!\nPlease Try Again Later..")
+                st.exception(error1)
