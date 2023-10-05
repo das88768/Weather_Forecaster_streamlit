@@ -1,15 +1,10 @@
-import os
-import dotenv
 from datetime import datetime
 import pyowm
 import streamlit as st
 from matplotlib import dates
 from matplotlib import pyplot as plt
 
-# Use dotenv module to fetch the secret ApiKey. 
-dotenv_file = os.path.join(".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+# Use streamlit secrets to fetch the secret ApiKey. 
 api_key = st.secrets["API_KEY"]
 
 sign = u"\N{DEGREE SIGN}"
