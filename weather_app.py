@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 dotenv_file = os.path.join(".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
-api_key = "319c6c97dcdf749ea08f106f21a77330"       ## os.environ['API_KEY']
+api_key = st.secrets["API_KEYS"]
 
 sign = u"\N{DEGREE SIGN}"
 owm = pyowm.OWM(api_key)
