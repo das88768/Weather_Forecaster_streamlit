@@ -109,6 +109,7 @@ def plot_line_graph_temp():
     plt.plot(days, temp_min, label='Min', color='#42bff4', marker='o')
     plt.plot(days, temp_max, label='Max', color='#ff5349', marker='o')
     plt.legend(fontsize='x-small')
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     st.pyplot(plt.show())
 
 
